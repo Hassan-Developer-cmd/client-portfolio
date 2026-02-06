@@ -1,7 +1,5 @@
-const config = {
+export default {
   plugins: {
-    "@tailwindcss/postcss": {},
+    '@tailwindcss/postcss': {}, // Naya plugin yahan aayega
   },
 };
-
-export default config;
