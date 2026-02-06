@@ -1,20 +1,21 @@
 @import "tailwindcss";
+
+/* 1. Base Smoothness */
 html {
   scroll-behavior: smooth !important;
+  background-color: black;
+  overscroll-behavior-y: none;
 }
 
 body {
-  overflow-x: hidden; /* Taake mobile par left-right na hile */
+  overflow-x: hidden;
   background: black;
+  color: white;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-
-html {
-  scroll-behavior: smooth;
-  background-color: black;
-}
-
-/* Ammar Ahmad Blue Scrollbar */
+/* 2. Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -24,8 +25,11 @@ html {
 ::-webkit-scrollbar-thumb {
   background: #00A3FF;
   border-radius: 10px;
-} 
-/* Ammar Ahmad Grain Effect */
+}
+
+/* 3. Performance Booster (Grain Effect Fix) */
+/* Hum ne grain effect ko fixed se hata kar opacity mazeed kam kar di hai 
+   taake mobile GPU par bojh na paray. Agar phir bhi lag ho toh ye pura block delete kar dena */
 body::before {
   content: "";
   position: fixed;
@@ -34,11 +38,17 @@ body::before {
   width: 100%;
   height: 100%;
   background-image: url("https://grainy-gradients.vercel.app/noise.svg");
-  opacity: 0.05;
+  opacity: 0.03; /* Opacity aur kam kar di */
   pointer-events: none;
-  z-index: 999;
-}
-html {
-  scroll-behavior: smooth;
+  z-index: 50; /* Z-index kam kiya taake har cheez ke upar na ho */
+  transform: translateZ(0); /* Force GPU acceleration */
 }
 
+/* 4. Smooth Elements */
+* {
+  backface-visibility: hidden;
+}
+
+img, video, canvas {
+  will-change: transform;
+}
