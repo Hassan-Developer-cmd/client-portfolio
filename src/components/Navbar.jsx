@@ -19,42 +19,39 @@ export default function Navbar() {
   const navLinks = [
     { name: "Home", href: "#home" },
     { name: "About", href: "#about" },
-    { name: "Education", href: "#education" },
-    { name: "Certificates", href: "#certificates" },
-    { name: "Contact", href: "#contact" },
+    { name: "Certificates", href: "#certificates" }, // Check karein ye ID match ho
   ];
 
   return (
     <motion.header
-      variants={{ visible: { y: 0 }, hidden: { y: "-100%" } }}
+      variants={{ visible: { y: 0 }, hidden: { y: "-120%" } }}
       animate={hidden ? "hidden" : "visible"}
-      transition={{ duration: 0.35, ease: "easeInOut" }}
-      className="fixed top-0 left-0 right-0 z-[100] w-full px-6 py-4"
+      transition={{ duration: 0.3, ease: "easeInOut" }}
+      className="fixed top-0 left-0 right-0 z-[999] w-full px-4 py-4"
     >
-      <nav className="max-w-7xl mx-auto flex items-center justify-between bg-black/50 backdrop-blur-md border border-white/10 px-8 py-3 rounded-full">
+      <nav className="max-w-7xl mx-auto flex items-center justify-between bg-black/60 backdrop-blur-xl border border-white/10 px-6 py-3 rounded-full shadow-2xl">
         {/* Logo */}
-        <Link href="#home" className="text-white font-black text-xl tracking-tighter">
+        <Link href="#home" className="text-white font-black text-lg tracking-tighter">
           DA<span className="text-[#00A3FF]">.</span>
         </Link>
 
-        {/* Links with Underline Animation */}
-        <div className="hidden md:flex items-center gap-8">
+        {/* Links: Mobile par bhi dikhane ke liye 'hidden' hata diya ya gap kam kiya */}
+        <div className="flex items-center gap-4 md:gap-8">
           {navLinks.map((link, index) => (
             <Link
               key={index}
               href={link.href}
-              className="group relative text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 hover:text-white transition-colors"
+              className="group relative text-[9px] md:text-[10px] font-bold uppercase tracking-widest text-gray-400 hover:text-white transition-colors"
             >
               {link.name}
-              {/* Animated Underline */}
               <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#00A3FF] transition-all duration-300 group-hover:w-full"></span>
             </Link>
           ))}
         </div>
 
-        {/* Button */}
-        <Link href="#contact" className="hidden md:block bg-white text-black px-6 py-2 rounded-full font-black text-[10px] uppercase tracking-widest hover:scale-105 transition-transform">
-          Let's Talk
+        {/* Let's Talk Button: Mobile par chota ya hide kar sakte hain */}
+        <Link href="#contact" className="hidden sm:block bg-white text-black px-5 py-2 rounded-full font-black text-[9px] uppercase tracking-widest hover:scale-105 transition-transform">
+          Talk
         </Link>
       </nav>
     </motion.header>

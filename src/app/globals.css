@@ -1,5 +1,12 @@
 @import "tailwindcss";
+html {
+  scroll-behavior: smooth !important;
+}
 
+body {
+  overflow-x: hidden; /* Taake mobile par left-right na hile */
+  background: black;
+}
 
 
 html {
