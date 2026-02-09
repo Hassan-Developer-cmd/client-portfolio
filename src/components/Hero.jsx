@@ -68,7 +68,7 @@ export default function Hero() {
               </button>
             </Link>
 
-            <Link href="https://linkedin.com/..." className="flex-1 sm:flex-none">
+            <Link href="https://www.linkedin.com/in/daudahmad/" className="flex-1 sm:flex-none">
               <button className="w-full flex items-center justify-center gap-2 border border-white/10 bg-[#0077B5]/10 text-white px-6 py-4 rounded-full font-black text-[10px] uppercase tracking-widest hover:bg-[#0077B5]">
                 LinkedIn
               </button>
