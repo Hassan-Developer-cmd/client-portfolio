@@ -4,19 +4,15 @@ import { Send } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function ContactForm() {
-  // Email state hata di hai
   const [formData, setFormData] = useState({ name: "", message: "" });
 
   const handleWhatsAppSend = (e) => {
     e.preventDefault();
     const phoneNumber = "923439125442"; 
     
-    // Message se bhi email nikal di hai
-    const text = `*New Portfolio Inquiry*%0A` +
-                 `--------------------------%0A` +
-                 `*Name:* ${formData.name}%0A` +
-                 `*Message:* ${formData.message}`;
-
+    // Sirf Name aur Message jayega, koi "Portfolio Inquiry" ka tag nahi
+    const text = `*Name:* ${formData.name}%0A*Message:* ${formData.message}`;
+    
     const whatsappUrl = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${text}`;
     window.open(whatsappUrl, "_blank");
   };
@@ -30,6 +26,7 @@ export default function ContactForm() {
           <motion.p 
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
             className="text-[#00A3FF] font-mono tracking-[0.4em] text-[10px] uppercase mb-4"
           >
             04. Get in touch
@@ -37,9 +34,10 @@ export default function ContactForm() {
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
             className="text-5xl md:text-7xl font-black uppercase tracking-tighter text-white"
           >
-            Let's <span className="text-white/20 text-stroke-white">Connect.</span>
+            Let's <span className="text-white/20">Connect.</span>
           </motion.h2>
         </div>
 
@@ -47,10 +45,10 @@ export default function ContactForm() {
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           className="w-full"
         >
           <form onSubmit={handleWhatsAppSend} className="space-y-4">
-            {/* Ab Name input full width hai kyunke email hat gaya hai */}
             <input 
               type="text" 
               placeholder="YOUR NAME"
