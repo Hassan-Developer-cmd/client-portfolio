@@ -18,98 +18,94 @@ export default function Hero() {
       } else {
         setDisplayText(currentWord.substring(0, displayText.length + 1));
       }
-
       if (!isDeleting && displayText === currentWord) {
-        setTimeout(() => setIsDeleting(true), 2000); 
+        setTimeout(() => setIsDeleting(true), 1500); 
       } else if (isDeleting && displayText === "") {
         setIsDeleting(false);
         setIndex(index + 1);
       }
     };
-    const timer = setTimeout(handleTyping, isDeleting ? 50 : 150);
+    const timer = setTimeout(handleTyping, isDeleting ? 40 : 100);
     return () => clearTimeout(timer);
   }, [displayText, isDeleting, index]);
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center px-8 md:px-24 bg-black relative overflow-hidden">
-      {/* Background Glow */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-[#00A3FF]/10 blur-[120px] rounded-full" />
+    <section id="home" className="min-h-screen flex items-center justify-center bg-black relative overflow-hidden pt-16 md:pt-0">
+      
+      {/* Background Decor - Minimal for Mobile Speed */}
+      <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden">
+        <div className="absolute top-[-5%] left-[-5%] w-[60%] h-[40%] bg-[#00A3FF]/10 blur-[80px] md:blur-[120px] rounded-full" />
       </div>
 
-      <div className="max-w-7xl w-full flex flex-col lg:flex-row items-center justify-between gap-12 pt-10">
+      <div className="max-w-7xl w-full mx-auto px-5 md:px-12 flex flex-col lg:flex-row items-center justify-between gap-6 md:gap-12">
         
-        <div className="lg:w-1/2 z-10 text-left">
+        {/* TEXT AREA: Mobile par center-ish, Desktop par Left */}
+        <div className="w-full lg:w-[55%] z-10 text-left order-2 lg:order-1">
           <motion.span 
             initial={{ opacity: 0 }} 
             animate={{ opacity: 1 }} 
-            className="text-[#00A3FF] font-black tracking-[0.4em] text-[10px] uppercase block mb-6"
+            className="text-[#00A3FF] font-extrabold tracking-[0.3em] text-[10px] md:text-xs uppercase block mb-3"
           >
             Software Quality Assurance
           </motion.span>
           
-          <h1 className="text-6xl md:text-8xl font-black uppercase tracking-tighter leading-[0.85] text-white">
-            {displayText.split(" ")[0]} <span className="text-[#00A3FF]">{displayText.split(" ")[1] || ""}</span>
+          {/* Font Sizes fixed taake phate nahi */}
+          <h1 className="text-[11vw] sm:text-6xl md:text-8xl font-black uppercase tracking-tighter leading-[0.9] text-white">
+            {displayText.split(" ")[0]} <br className="block md:hidden" />
+            <span className="text-[#00A3FF]">{displayText.split(" ").slice(1).join(" ") || ""}</span>
             <span className="text-white animate-pulse">|</span>
           </h1>
           
-          <p className="text-gray-500 text-lg mt-8 max-w-lg font-medium leading-relaxed">
-            Ensuring digital excellence through automated precision and resilient testing frameworks.
+          <p className="text-gray-500 text-sm md:text-lg mt-5 md:mt-8 max-w-md font-medium leading-relaxed">
+            Ensuring digital excellence through automated precision and resilient testing.
           </p>
 
-          {/* Buttons Container */}
-          <div className="mt-12 flex flex-wrap gap-4">
-            {/* View Work */}
-            <Link href="#certifications">
-              <button className="flex items-center gap-3 bg-white text-black px-8 py-4 rounded-full font-black text-[11px] uppercase tracking-widest transition-all hover:scale-105 active:scale-95">
-                View Certificates
-                <ArrowUpRight size={16} />
+          {/* BUTTONS: Mobile par 2x2 grid ya stack, Desktop par line */}
+          <div className="mt-8 flex flex-wrap gap-3 md:gap-4">
+            <Link href="#certifications" className="w-full sm:w-auto">
+              <button className="w-full flex items-center justify-center gap-2 bg-white text-black px-6 py-4 rounded-full font-black text-[10px] uppercase tracking-widest hover:scale-105 transition-all">
+                Certificates <ArrowUpRight size={14} />
               </button>
             </Link>
 
-            {/* LinkedIn */}
-            <Link href="https://www.linkedin.com/in/daudahmad?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" className="inline-block">
-              <button className="flex items-center gap-3 border border-white/10 bg-[#0077B5]/10 text-white px-8 py-4 rounded-full font-black text-[11px] uppercase tracking-widest transition-all hover:bg-[#0077B5] hover:border-[#0077B5] group">
-                <svg size={16} fill="currentColor" viewBox="0 0 24 24" className="w-4 h-4 text-[#0077B5] group-hover:text-white transition-colors">
-                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                </svg>
+            <Link href="https://linkedin.com/..." className="flex-1 sm:flex-none">
+              <button className="w-full flex items-center justify-center gap-2 border border-white/10 bg-[#0077B5]/10 text-white px-6 py-4 rounded-full font-black text-[10px] uppercase tracking-widest hover:bg-[#0077B5]">
                 LinkedIn
               </button>
             </Link>
 
-            {/* GitHub */}
-            <Link href="https://github.com/dawood1123" target="_blank" className="inline-block">
-              <button className="flex items-center gap-3 border border-white/10 bg-white/5 text-white px-8 py-4 rounded-full font-black text-[11px] uppercase tracking-widest transition-all hover:bg-white/10 hover:border-[#00A3FF]/50">
-                <Github size={16} />
-                GitHub
-              </button>
-            </Link>
-
-            {/* Resume */}
-            <Link href="/resume.pdf" target="_blank" className="inline-block">
-              <button className="flex items-center gap-3 border border-white/10 bg-white/5 text-white px-8 py-4 rounded-full font-black text-[11px] uppercase tracking-widest transition-all hover:bg-white/10 hover:border-[#00A3FF]/50">
-                <FileText size={16} />
-                Resume
-              </button>
-            </Link>
+            <div className="flex gap-3 w-full sm:w-auto">
+              <Link href="https://github.com/dawood1123" className="flex-1">
+                <button className="w-full flex items-center justify-center border border-white/10 bg-white/5 text-white p-4 rounded-full hover:border-[#00A3FF]/50">
+                  <Github size={18} />
+                </button>
+              </Link>
+              <Link href="/resume.pdf" className="flex-1">
+                <button className="w-full flex items-center justify-center border border-white/10 bg-white/5 text-white p-4 rounded-full hover:border-[#00A3FF]/50">
+                  <FileText size={18} />
+                </button>
+              </Link>
+            </div>
           </div>
         </div>
 
-        {/* Image Area */}
-        <div className="lg:w-1/2 relative flex items-end justify-center h-[500px] md:h-[700px]">
-          <div className="absolute bottom-20 w-[450px] h-[450px] bg-[#00A3FF]/15 blur-[120px] rounded-full" />
+        {/* IMAGE AREA: Scaled for Mobile */}
+        <div className="w-full lg:w-[45%] relative flex justify-center lg:justify-end items-end h-[300px] sm:h-[450px] md:h-[600px] order-1 lg:order-2">
+          <div className="absolute bottom-5 w-[200px] h-[200px] md:w-[400px] md:h-[400px] bg-[#00A3FF]/20 blur-[80px] rounded-full" />
           <motion.img 
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
             src="/me.jpg" 
-            alt="Dawood Ahmed"
-            className="relative z-10 w-full h-full object-contain grayscale hover:grayscale-0 transition-all duration-1000 brightness-90"
+            alt="Dawood Ahmad"
+            className="relative z-10 max-w-full h-full object-contain grayscale"
             style={{
-              maskImage: 'linear-gradient(to top, transparent 0%, black 25%, black 100%)',
-              WebkitMaskImage: 'linear-gradient(to top, transparent 0%, black 25%, black 100%)'
+              willChange: "transform",
+              WebkitMaskImage: 'linear-gradient(to top, transparent 0%, black 15%, black 100%)',
+              maskImage: 'linear-gradient(to top, transparent 0%, black 15%, black 100%)'
             }}
           />
         </div>
+
       </div>
     </section>
   );
