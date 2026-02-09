@@ -84,7 +84,7 @@ export default function Skills() {
     { title: "Playwright", category: "Automation", percentage: "85" },
     { title: "Postman", category: "API Testing", percentage: "95" },
     { title: "JMeter", category: "Performance", percentage: "80" },
-    { title: "Jenkins", category: "CI/CD", percentage: "75" },
+    { title: "JIRA", category: "CI/CD", percentage: "95" },
     { title: "Python/Java", category: "Scripting", percentage: "85" },
   ];
 
