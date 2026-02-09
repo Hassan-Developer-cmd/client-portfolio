@@ -12,14 +12,14 @@ export default function AcademicJourney() {
       type: "university"
     },
     {
-      degree: "F.Sc Pre-Engineering",
+      degree: "F.Sc Computer Science",
       institute: "Islamia College Peshawar",
       duration: "2021 — 2023",
       details: "Intermediate studies with a focus on Mathematics and Physics.",
       type: "college"
     },
     {
-      degree: "Secondary School (Matric)",
+      degree: "Secondary School Certificate (Matric)",
       institute: "Peshawar Model School",
       duration: "2019 — 2021",
       details: "Science group with focus on Computer Science fundamentals.",
