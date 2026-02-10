@@ -19,7 +19,7 @@ export default function Navbar() {
   const navLinks = [
     { name: "Home", href: "#home" },
     { name: "About", href: "#about" },
-    { name: "Certificates", href: "#certificates" }, // Check karein ye ID match ho
+    { name: "Projects", href: "#projects" }, // Check karein ye ID match ho
   ];
 
   return (

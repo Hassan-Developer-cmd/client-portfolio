@@ -80,12 +80,12 @@ export default function Skills() {
   };
 
   const skills = [
-    { title: "Selenium", category: "Automation", percentage: "90" },
+    { title: "Testiny/TestRail", category: "Automation", percentage: "90" },
     { title: "Playwright", category: "Automation", percentage: "85" },
     { title: "Postman", category: "API Testing", percentage: "95" },
     { title: "JMeter", category: "Performance", percentage: "80" },
     { title: "JIRA", category: "CI/CD", percentage: "95" },
-    { title: "Python/Java", category: "Scripting", percentage: "85" },
+    { title: "Python/Javascript", category: "Scripting", percentage: "85" },
   ];
 
   return (

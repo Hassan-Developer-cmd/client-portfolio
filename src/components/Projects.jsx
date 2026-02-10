@@ -1,7 +1,6 @@
 "use client"
 import { motion } from "framer-motion";
-import { ArrowUpRight, Github } from "lucide-react";
-import Link from "next/link";
+import { Github } from "lucide-react"; // ArrowUpRight hata diya
 
 export default function Projects() {
   const title = "Selected Works";
@@ -21,18 +20,15 @@ export default function Projects() {
 
   const projectData = [
     {
-      title: "E-Commerce Automation",
-      desc: "End-to-end testing suite using Playwright and Java.",
-      tags: ["Playwright", "Java", "ExtentReports"],
-      link: "#",
+      title: "Web Application Manual Testing (CRUD Application)",
+      desc: "Managed end-to-end CRUD manual testing, Jira defect reporting, and regression cycles.",
+      tags: ["TestRail", "Postman", "Jira"],
     },
     {
-      title: "API Testing Framework",
-      desc: "Automated API validation with Postman and Newman.",
-      tags: ["Postman", "Newman", "JavaScript"],
-      link: "#",
+      title: "Live Website Manual Testing Assignment",
+      desc: "Performed E2E testing on live sites, validating UI/UX, forms, and navigation with full test documentation.",
+      tags: ["Postman", "Jira", "Testrail"],
     },
-    // Aap ke baki projects yahan khud ba khud aa jayenge
   ];
 
   return (
@@ -76,7 +72,6 @@ export default function Projects() {
         </div>
         {/* --- ANIMATED HEADING END --- */}
 
-        {/* Aap ke Projects ka Grid waisa hi rahega */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {projectData.map((project, index) => (
             <motion.div
@@ -96,23 +91,15 @@ export default function Projects() {
                       </span>
                     ))}
                   </div>
-                  <Link href={project.link} className="text-white group-hover:text-[#00A3FF] transition-colors">
-                    <ArrowUpRight size={24} />
-                  </Link>
+                  {/* Arrow icon aur Link yahan se remove kar diye hain */}
                 </div>
                 
                 <h3 className="text-3xl font-black text-white uppercase tracking-tighter mb-4">
                   {project.title}
                 </h3>
-                <p className="text-gray-500 text-sm leading-relaxed mb-8 max-w-sm">
+                <p className="text-gray-500 text-sm leading-relaxed mb-2 max-w-sm">
                   {project.desc}
                 </p>
-                
-                <div className="flex gap-4">
-                   <Link href="#" className="text-[10px] font-bold uppercase tracking-widest text-white/40 hover:text-[#00A3FF] transition-colors">
-                     View Case Study
-                   </Link>
-                </div>
               </div>
 
               {/* Background Glow on Hover */}
