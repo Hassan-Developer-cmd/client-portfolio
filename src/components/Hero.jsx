@@ -53,8 +53,8 @@ export default function Hero() {
             {displayText.split(" ")[0]} <br className="block md:hidden" />
             <span className="text-[#00A3FF]">{displayText.split(" ").slice(1).join(" ") || ""}</span>
             
-            {/* Sleek Cursor Bar */}
-            <span className="inline-block w-[3px] h-[0.7em] bg-[#00A3FF] ml-2 animate-pulse align-middle"></span>
+            {/* White Cursor - Size Fixed */}
+            <span className="inline-block w-[2px] h-[0.85em] bg-white ml-2 animate-pulse align-middle"></span>
           </h1>
           
           <p className="text-gray-500 text-sm md:text-lg mt-5 md:mt-8 max-w-md font-medium leading-relaxed">
@@ -69,7 +69,7 @@ export default function Hero() {
               </button>
             </Link>
 
-            {/* Resume with Name */}
+            {/* Resume with Text */}
             <Link href="/resume.pdf" className="flex-1 sm:flex-none">
               <button className="w-full flex items-center justify-center gap-2 border border-white/10 bg-white/5 text-white px-6 py-4 rounded-full font-black text-[10px] uppercase tracking-widest hover:border-[#00A3FF]/50 transition-all">
                 <FileText size={16} /> Resume
@@ -78,13 +78,11 @@ export default function Hero() {
 
             {/* Social Icons */}
             <div className="flex gap-3 w-full sm:w-auto justify-start">
-              {/* LinkedIn - Logo Only */}
               <Link href="https://www.linkedin.com/in/daudahmad/" target="_blank">
                 <button className="flex items-center justify-center border border-white/10 bg-[#0077B5]/10 text-white p-4 rounded-full hover:bg-[#0077B5] transition-all">
                   <Linkedin size={20} />
                 </button>
               </Link>
-              {/* GitHub */}
               <Link href="https://github.com/dawood1123" target="_blank">
                 <button className="flex items-center justify-center border border-white/10 bg-white/5 text-white p-4 rounded-full hover:border-[#00A3FF]/50 transition-all">
                   <Github size={20} />
@@ -94,7 +92,7 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* IMAGE AREA - Small size, Original Colors, Zoom on Hover */}
+        {/* IMAGE AREA - Balanced Size & Zoom */}
         <div className="w-full lg:w-[35%] relative flex justify-center lg:justify-end items-end h-[250px] sm:h-[400px] md:h-[500px] order-1 lg:order-2 group">
           <div className="absolute bottom-5 w-[150px] h-[150px] md:w-[300px] md:h-[300px] bg-[#00A3FF]/20 blur-[60px] rounded-full" />
           
